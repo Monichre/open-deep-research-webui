@@ -1,7 +1,7 @@
-'use client';
+'use client'
 
-import { Chat } from '@/components/chat/chat';
-import { Header } from '@/components/chat/site-header';
+import { Chat } from '@/components/chat/chat'
+import { Header } from '@/components/chat/site-header'
 
 export default function ResearchPage() {
   return (
@@ -9,5 +9,7 @@ export default function ResearchPage() {
       <Header />
       <Chat id="research" initialMessages={[]} />
     </main>
-  );
+  )
 }
+
+// FIRECRAWL_KEY=fc-e271f58f93fe4b3fa4885b3234dfa8fb
