@@ -1,5 +1,5 @@
-import Image from "next/image";
-import Link from "next/link";
+import Image from "next/image"
+import Link from "next/link"
 
 export function Header() {
   return (
@@ -8,19 +8,20 @@ export function Header() {
         <div className="container flex h-[3.5rem] items-center justify-center">
           <Link
             className="flex items-center text-md text-black"
-            href="https://anotherwrapper.com"
+            href="https://liamellis.dev"
             target="_blank"
           >
             <Image
-              src="/logo-text.png"
+              src="/alt-logo.png"
               alt="Anotherwrapper Logo"
-              width={400}
-              height={100}
-              className="w-48"
+              width={500}
+              height={494}
+              className="w-8 ml-1"
             />
+            <span className="ml-2">Digital Mischief Group</span>
           </Link>
         </div>
       </header>
     </>
-  );
+  )
 }

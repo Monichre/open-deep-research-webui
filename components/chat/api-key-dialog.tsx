@@ -1,14 +1,14 @@
-"use client";
+"use client"
 
-import { useState } from "react";
-import Image from "next/image";
+import { useState } from "react"
+import Image from "next/image"
 import {
   LockIcon,
   KeyIcon,
   Loader2Icon,
   ShieldCheckIcon,
   GithubIcon,
-} from "lucide-react";
+} from "lucide-react"
 
 import {
   Dialog,
@@ -17,42 +17,42 @@ import {
   DialogTitle,
   DialogDescription,
   DialogFooter,
-} from "@/components/ui/dialog";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
+} from "@/components/ui/dialog"
+import { Input } from "@/components/ui/input"
+import { Button } from "@/components/ui/button"
 
 interface ApiKeyDialogProps {
-  show: boolean;
-  onClose: (open: boolean) => void;
-  onSuccess: () => void;
+  show: boolean
+  onClose: ( open: boolean ) => void
+  onSuccess: () => void
 }
 
-export function ApiKeyDialog({ show, onClose, onSuccess }: ApiKeyDialogProps) {
-  const [openaiKey, setOpenaiKey] = useState("");
-  const [firecrawlKey, setFirecrawlKey] = useState("");
-  const [loading, setLoading] = useState(false);
+export function ApiKeyDialog( { show, onClose, onSuccess }: ApiKeyDialogProps ) {
+  const [openaiKey, setOpenaiKey] = useState( "" )
+  const [firecrawlKey, setFirecrawlKey] = useState( "" )
+  const [loading, setLoading] = useState( false )
 
   const handleApiKeySubmit = async () => {
-    if (!openaiKey || !firecrawlKey) return;
-    setLoading(true);
-    const res = await fetch("/api/keys", {
+    if ( !openaiKey || !firecrawlKey ) return
+    setLoading( true )
+    const res = await fetch( "/api/keys", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ openaiKey, firecrawlKey }),
-    });
-    if (res.ok) {
-      onClose(false);
-      onSuccess();
+      body: JSON.stringify( { openaiKey, firecrawlKey } ),
+    } )
+    if ( res.ok ) {
+      onClose( false )
+      onSuccess()
     }
-    setLoading(false);
-  };
+    setLoading( false )
+  }
 
   return (
     <Dialog open={show} onOpenChange={onClose}>
       <DialogContent className="sm:max-w-[600px] max-w-[95%] h-[90vh] sm:h-auto overflow-y-auto bg-white/80 backdrop-blur-xl border border-zinc-200 shadow-2xl p-4 sm:p-6">
         <DialogHeader>
           <DialogTitle className="text-xl sm:text-2xl mb-2 sm:mb-4 font-bold text-black">
-            Open Deep Research
+            Digital Mischief Group Deep Research
           </DialogTitle>
           <DialogDescription className="text-zinc-600 space-y-3 sm:space-y-4 mt-2 sm:mt-4">
             <div className="bg-zinc-50 border border-zinc-200 rounded-lg p-3 sm:p-4">
@@ -154,7 +154,7 @@ export function ApiKeyDialog({ show, onClose, onSuccess }: ApiKeyDialogProps) {
                 <Input
                   type="password"
                   value={openaiKey}
-                  onChange={(e) => setOpenaiKey(e.target.value)}
+                  onChange={( e ) => setOpenaiKey( e.target.value )}
                   placeholder="sk-..."
                   className="pr-10 font-mono text-sm bg-white/50 border-zinc-200 focus:border-zinc-400 focus:ring-zinc-400 h-9 sm:h-10"
                 />
@@ -175,7 +175,7 @@ export function ApiKeyDialog({ show, onClose, onSuccess }: ApiKeyDialogProps) {
                 <Input
                   type="password"
                   value={firecrawlKey}
-                  onChange={(e) => setFirecrawlKey(e.target.value)}
+                  onChange={( e ) => setFirecrawlKey( e.target.value )}
                   placeholder="fc-..."
                   className="pr-10 font-mono text-sm bg-white/50 border-zinc-200 focus:border-zinc-400 focus:ring-zinc-400 h-9 sm:h-10"
                 />
@@ -223,5 +223,5 @@ export function ApiKeyDialog({ show, onClose, onSuccess }: ApiKeyDialogProps) {
         </DialogFooter>
       </DialogContent>
     </Dialog>
-  );
+  )
 }
