@@ -1,18 +1,18 @@
-'use client';
+"use client";
 
-import { Message } from 'ai';
-import { motion } from 'framer-motion';
+import { Message } from "ai";
+import { motion } from "framer-motion";
 import {
   BookOpenIcon,
   BrainCircuitIcon,
   GavelIcon,
   SearchIcon,
-} from 'lucide-react';
+} from "lucide-react";
 
-import { Markdown } from './markdown';
+import { Markdown } from "./markdown";
 
 export type ProgressStep = {
-  type: 'query' | 'research' | 'learning' | 'report';
+  type: "query" | "research" | "learning" | "report";
   content: string;
   queries?: Array<{
     query: string;
@@ -23,20 +23,20 @@ export type ProgressStep = {
 export function PreviewMessage({ message }: { message: Message }) {
   // Helper function to format follow-up questions into markdown
   const formatFollowUpQuestions = (content: string) => {
-    if (content.includes('follow-up questions')) {
+    if (content.includes("follow-up questions")) {
       // Split the content into introduction and questions
-      const [intro, ...questions] = content.split('\n').filter(Boolean);
+      const [intro, ...questions] = content.split("\n").filter(Boolean);
 
       // Format as markdown
       return `${intro}\n\n${questions
-        .map(q => {
+        .map((q) => {
           // If the line starts with a number, format it as a markdown list item
           if (/^\d+\./.test(q)) {
             return q.trim();
           }
           return q;
         })
-        .join('\n\n')}`;
+        .join("\n\n")}`;
     }
     return content;
   };
@@ -49,24 +49,24 @@ export function PreviewMessage({ message }: { message: Message }) {
     >
       <div
         className={`flex gap-4 ${
-          message.role === 'user'
-            ? 'bg-foreground/5 py-2 px-4 rounded-full text-sm w-fit ml-auto max-w-[90%]'
-            : 'w-full'
+          message.role === "user"
+            ? "bg-foreground/5 py-3 px-4 rounded-2xl text-sm w-fit ml-auto max-w-[85%] break-words whitespace-pre-wrap"
+            : "w-full"
         }`}
       >
         <div
           className={`flex-1 ${
-            message.role === 'assistant'
-              ? 'prose prose-zinc dark:prose-invert max-w-none'
-              : ''
+            message.role === "assistant"
+              ? "prose prose-zinc dark:prose-invert max-w-none"
+              : ""
           }`}
         >
-          {message.role === 'assistant' ? (
+          {message.role === "assistant" ? (
             <div className="markdown-content text-foreground/90">
               <Markdown>{formatFollowUpQuestions(message.content)}</Markdown>
             </div>
           ) : (
-            <p className="text-primary">{message.content}</p>
+            <p className="text-primary leading-relaxed">{message.content}</p>
           )}
         </div>
       </div>
@@ -82,12 +82,12 @@ export function ResearchProgress({
   isLoading: boolean;
 }) {
   // Filter out individual report word updates
-  const filteredProgress = progress.filter(step => {
-    if (step.type === 'report') {
+  const filteredProgress = progress.filter((step) => {
+    if (step.type === "report") {
       // Only show the initial "Generating report" step
       return (
-        step.content.includes('Generating') ||
-        step.content.includes('Synthesizing')
+        step.content.includes("Generating") ||
+        step.content.includes("Synthesizing")
       );
     }
     return true;
@@ -116,10 +116,10 @@ export function ResearchProgress({
           className="flex items-start gap-4"
         >
           <div className="w-8 h-8 flex items-center justify-center rounded-lg">
-            {step.type === 'query' && <SearchIcon size={14} />}
-            {step.type === 'research' && <BookOpenIcon size={14} />}
-            {step.type === 'learning' && <BrainCircuitIcon size={14} />}
-            {step.type === 'report' && <GavelIcon size={14} />}
+            {step.type === "query" && <SearchIcon size={14} />}
+            {step.type === "research" && <BookOpenIcon size={14} />}
+            {step.type === "learning" && <BrainCircuitIcon size={14} />}
+            {step.type === "report" && <GavelIcon size={14} />}
           </div>
           <div className="flex-1">
             <p className="text-sm font-medium capitalize mb-1">{step.type}</p>

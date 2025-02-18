@@ -55,7 +55,11 @@ export async function POST(req: NextRequest) {
         try {
           console.log("\n🚀 [RESEARCH ROUTE] === Research Started ===");
 
-          const feedbackQuestions = await generateFeedback({ query });
+          const feedbackQuestions = await generateFeedback({
+            query,
+            modelId,
+            apiKey: openaiKey,
+          });
           await writer.write(
             encoder.encode(
               `data: ${JSON.stringify({

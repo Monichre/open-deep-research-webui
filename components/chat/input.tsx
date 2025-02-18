@@ -146,7 +146,7 @@ export function MultimodalInput({
         value={input}
         onChange={(e) => setInput(e.target.value)}
         className={cx(
-          "bg-white min-h-[72px] text-sm w-full max-h-[calc(100dvh)]",
+          "bg-white min-h-[72px] max-h-[calc(100dvh-200px)] overflow-y-auto text-sm w-full",
           "overflow-hidden resize-none px-4 pb-10 pt-4 rounded-2xl",
           "outline-none focus:outline-none focus:ring-0 border-0"
         )}
@@ -279,7 +279,7 @@ export function MultimodalInput({
       </div>
 
       {/* Desktop Controls - Original layout */}
-      <div className="hidden md:flex absolute bottom-2.5 left-2 gap-2 items-center">
+      <div className="hidden md:flex bg-white absolute bottom-0 py-3 left-2 gap-2 items-center">
         {/* Original desktop controls - unchanged */}
         <button
           type="button"

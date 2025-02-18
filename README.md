@@ -32,7 +32,7 @@ The system maintains the core research capabilities of the original CLI while pr
 
 ## Sponsors
 
-This project is proudly sponsored by [Anotherwrapper](https://anotherwrapper.com).
+This project is proudly sponsored by [AnotherWrapper](https://anotherwrapper.com).
 
 [![Sponsored by Anotherwrapper](https://anotherwrapper.com/og.png)](https://anotherwrapper.com)
 
@@ -82,7 +82,7 @@ MIT License. Feel free to use and modify the code for your own projects as you w
 ## Acknowledgements
 
 - **Original CLI:** [dzhng/deep-research](https://github.com/dzhng/deep-research)
-- **Sponsor:** [Anotherwrapper](https://anotherwrapper.com)
+- **Sponsor:** [AnotherWrapper](https://anotherwrapper.com)
 - **Tools:** Next.js, shadcn/ui, anotherwrapper, Vercel AI SDK
 
 Happy researching!
