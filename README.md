@@ -64,9 +64,11 @@ This project is proudly sponsored by [AnotherWrapper](https://anotherwrapper.com
    ```
 
 3. **Run the App**
+
    ```bash
    npm run dev
    ```
+
    Visit [http://localhost:3000](http://localhost:3000)
 
 ## API Key Management
@@ -86,3 +88,10 @@ MIT License. Feel free to use and modify the code for your own projects as you w
 - **Tools:** Next.js, shadcn/ui, anotherwrapper, Vercel AI SDK
 
 Happy researching!
+
+## TODO
+
+- [ ] Add a way to select the model for the research step
+- [ ] Add a way to select the model for the reasoning step
+- [ ] Add a way to select the model for the output step
+- [ ] Add a way to select the model for the final output step
